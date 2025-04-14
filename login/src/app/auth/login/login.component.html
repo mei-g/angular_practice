@@ -1,0 +1,24 @@
+<!--template approach-->
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <h2>Login</h2>
+
+  <div class="control-row">
+    <div class="control no-margin">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" ngModel required email #emailctrl="ngModel"/>
+      <!--two way binding-->
+      <input id="email" type="email" name="email" [(ngModel)]="enteredEmail"/>
+    </div>
+
+    <div class="control no-margin">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" ngModel required minlength="6" #pwdctrl="ngModel" />
+    </div>
+
+    <button class="button">Login</button>
+  </div>
+  @if(emailctrl.touched && pwdctrl.touched && form.form.invalid) {
+
+    <p calss="control-error"> Invalid values detected. Please check your input</p>
+  }
+</form>

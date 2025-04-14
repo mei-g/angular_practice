@@ -1,0 +1,18 @@
+<div>
+    <ul>
+        <!--angular 17 or later-->
+        @for(ticket of tickets; track ticket.id){
+            <li>
+                <app-ticket [data] = "ticket" (close)="onCloseTicket($event)"> </app-ticket>
+            </li>
+        }@empty {
+          <p>No tickets available</p>
+        }
+
+    </ul>
+</div>
+
+<div id="new-ticket">
+    <app-new-ticket (add)="onAdd($event)" />
+
+</div>
