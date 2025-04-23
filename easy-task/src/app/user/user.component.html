@@ -1,0 +1,21 @@
+
+<app-card>
+    
+    <div>
+        <!--event listener-->
+        <button [class.active]="selected" (click)="onSelectedUser()">
+            <!--keep template simple-->
+            <img 
+            [src]="imagePath"
+            [alt]="name"
+            />
+            <!--String interpolation-->
+            <span> {{  name }}</span>
+            <!--img 
+            [src]="newImagePath()"
+            [alt]="newSelectedUser().name"
+            />
+            <span> {{  newSelectedUser().name }}</span-->
+        </button>
+    </div>
+</app-card>

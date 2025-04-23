@@ -1,0 +1,11 @@
+<app-card>
+    <article>
+        <!--string interpolation-->
+        <h2>Task title : {{ task.title }}</h2>
+        <time>Time: {{ time | date :'fullDate'}}</time>
+        <p>SUMMARY: {{summary}}</p>
+        <p class="actions">
+            <button (click)="onCompleteTask()">Complete</button>
+        </p>
+    </article>
+</app-card>
