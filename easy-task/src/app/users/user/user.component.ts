@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DUMMY_USERS } from '../dummy-users';
-import { CardComponent } from "../shared/card/card.component";
+import { DUMMY_USERS } from '../../dummy-users';
+import { CardComponent } from "../../shared/card/card.component";
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
 

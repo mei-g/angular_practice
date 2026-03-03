@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
-import { UserComponent } from "./user/user.component";
+import { UserComponent } from "./users/user/user.component";
+import { UsersComponent } from "./users/users.component";
 import { DUMMY_USERS } from './dummy-users';
 import { dummyTasks } from './dummy-tasks'
 import { TaskComponent } from "./task/task.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, UserComponent, TaskComponent],
+  imports: [RouterOutlet, HeaderComponent, UserComponent, TaskComponent, UsersComponent],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -25,6 +26,7 @@ export class AppComponent {
   onSelectUser(id: string) {
    console.log('selected user id ' + id);
    this.selectedUserId = id;
-
   }
+
+
 }

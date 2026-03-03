@@ -2,16 +2,10 @@
 
 <app-header></app-header>
 
+
 <main class="main">
-  <ul id="users">
-    <!--ngfor/ngif equivalent old version, structural directive-->
-    @for (user of users; track user.id) {
-      <li>
-        <app-user [id]="user.id" [avatar]="user.avatar" [name]="user.name"  [selected]="user.id === selectedUserId" (select)="onSelectUser($event)"/>
-      </li>
-    }
-    
-  </ul>
+  <app-users [users]="users" (selectedId)="onSelectUser($event)"></app-users>
+
    @if (selectedUser){
 
      <!--property binding-->
@@ -20,6 +14,8 @@
    @else {
     <p id="fallback">Select a user to see their tasks</p>
    }
+
+
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

@@ -1,0 +1,15 @@
+  <ul id="users">
+    <!--ngfor/ngif equivalent old version, structural directive-->
+    @for (user of users(); track user.id) {
+      <li>
+        <app-user [id]="user.id" [avatar]="user.avatar" [name]="user.name"  [selected]="user.id === selected" (select)="onSelectUser($event)"/>
+      </li>
+    }
+    
+  </ul>
+
+  <section>
+    <menu>
+        <button (click)="onAddUser()">Add User</button>
+    </menu>
+  </section>
