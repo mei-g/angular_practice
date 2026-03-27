@@ -1,0 +1,59 @@
+<div class="backdrop" (click)="onCancel()"></div>
+<div>
+    <dialog open>
+        <header> New User</header>
+        <form (ngSubmit)="onSubmit()">
+            <label for="name">Name:</label>
+            <input type="text"  #firstFocusable [formControl]="colorControl" rows="3"/>
+            <label for="name">Age:</label>
+            <input type="text" [formControl]="ageControl" />
+            <label for="desc">Description:</label>
+            <textarea type="text" [formControl]="colorControl" rows="3"></textarea>
+            <input type="datetime-local" />
+            <label for="desc">Avator upload:</label>
+            <input type="file" (change)="onFileSelected($event)" accept="image/*" #fileInput/>
+            <div class="actions">
+                <button type="button" (click)="onCancel()">Cancel</button>
+                <button type="submit" >Submit</button>
+            </div>
+
+            <!-- <app-upload></app-upload> -->
+        </form>
+    </dialog>
+</div>
+
+<!-- Rename modal: native dialog used when supported; fallback div otherwise -->
+<dialog #dialogElem role="dialog" aria-modal="true" aria-labelledby="rename-title" (close)="onDialogClose()">
+  <div class="dialog-inner">
+    <h2 id="rename-title">Rename file before upload</h2>
+
+    <div class="preview-row">
+        @if(previewDataUrl){
+            <div class="thumb">
+                <img [src]="previewDataUrl" alt="Selected image preview" />
+            </div>
+        }
+
+      <form (ngSubmit)="confirmRename()" class="rename-form" #renameForm="ngForm" novalidate>
+        <label for="filename">Filename</label>
+        <input
+          id="filename"
+          name="filename"
+          required
+          minlength="1"
+          [(ngModel)]="proposedName"
+          #nameCtrl="ngModel"
+          (keydown.escape)="cancelRename()"
+        />
+        @if(nameCtrl.invalid && nameCtrl.touched) {
+          <div class="error">Please enter a filename.</div>
+        }
+
+        <div class="actions">
+          <button type="button" (click)="cancelRename()">Cancel</button>
+          <button type="submit" [disabled]="renameForm.invalid">Upload</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</dialog>
