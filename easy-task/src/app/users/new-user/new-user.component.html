@@ -11,7 +11,8 @@
             <textarea type="text" [formControl]="colorControl" rows="3"></textarea>
             <input type="datetime-local" />
             <label for="desc">Avator upload:</label>
-            <input type="file" (change)="onFileSelected($event)" accept="image/*" #fileInput/>
+            <!-- <input type="file" (change)="onFileSelected($event)" accept="image/*" #fileInput/> -->
+            <input type="file" (change)="onFileSelected($event)" #fileInput/>
             <div class="actions">
                 <button type="button" (click)="onCancel()">Cancel</button>
                 <button type="submit" >Submit</button>
